@@ -1,15 +1,17 @@
 # Functional-Programming
-**Opdracht** .   
+**De Opdracht**    
 In deze twee weken heb ik geleerd een visualisatie te maken die wordt geladen aan de hand van data. Deze data komt van het  Nationaal Museum van Wereldculturen. Deze data heb ik eerst opgeschoont door middel van Functional Programming. Vervolgens ga ik deze data gebruiken om de visualisatie te maken door middel van de D3 Library.  
 
-**Wat is Functional Programming?**
+**Wat is Functional Programming?**  
+Functional Programming is het opbouwen van code door 'pure functies'* samen te stellen. Aan de hand van deze functies kun je bijvoorbeeld data muteren/opschonen tot een gewenste structuur. Bekende functies die kunnen helpen bij Functional Programming zijn map(), reduce() en filter().
+
+* Pure functies zijn: functies die geen toegang hebben tot het aanpassen van een variabel binnen een functie maar een waarde teruggeven. 
 
 ## Inhoudsopgave
 * [Doelen](#Doelen)
 * [Concept](#Concept)
 * [Features](#Features)
 * [API](#API)
-* [Installeren](#Installeren)
 * [Credits](#Credits)
 
 ## Doelen
@@ -72,7 +74,6 @@ WHERE {
 
 </details>
 
-## Installeren
 ## Credits
 
 <details><summary>Titel</summary>
