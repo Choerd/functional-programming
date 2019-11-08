@@ -1,19 +1,23 @@
 # Functional-Programming
+**Opdracht**
+In deze twee weken heb ik geleerd een visualisatie te maken die wordt geladen aan de hand van data. Deze data komt van het  Nationaal Museum van Wereldculturen. Deze data heb ik eerst opgeschoont door middel van Functional Programming. Vervolgens ga ik deze data gebruiken om de visualisatie te maken door middel van de D3 Library.
 
 ## Inhoudsopgave
 * [Doelen](#Doelen)
-* [Beschrijving](#Beschrijving)
+* [Concept](#Concept)
 * [Features](#Features)
 * [API](#API)
 * [Installeren](#Installeren)
 * [Credits](#Credits)
 
 ## Doelen
-* [x] Test
-* [ ] Test
+* [ ] Data opschonen door middel van Functional Programming
+* [ ] Basisprincipes leren van ES6
  
-## Beschrijving
+## Concept
+De gebruiker kan aan de hand van de visualisatie inzicht krijgen in het type en het soort materiaal van de voorwerpen binnen een bepaalde categorie. De categorie kan de gebruiker zelf bepalen door deze te selecteren. Wanneer hij een categorie heeft gevonden kan hij ook nog filteren op een bepaald land om de voorwerpen te kunnen bekijken van bepaalde landen.
 
+![concept_functional-programming](https://user-images.githubusercontent.com/45365598/68464932-c7529880-0211-11ea-9cd3-cca7d83361fb.png)
 
 ## Features
 ## API
