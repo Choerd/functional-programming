@@ -39,14 +39,13 @@ PREFIX gn: <http://www.geonames.org/ontology#>
 
 SELECT  ?cho
         ?catName
-		    ?title
-		    ?materiaalLabel
-		    ?voorwerpType
-		    ?landLabel
+	?title
+	?materiaalLabel
+	?voorwerpType
+	?landLabel
 WHERE {
 <https://hdl.handle.net/20.500.11840/termmaster2809> skos:narrower ?cat . # keuze maken in categorie
   
-  # variabelen definiëren
   ?cho edm:isRelatedTo ?cat .
   ?cho dct:medium ?materiaal .
   ?cho dc:type ?voorwerpType .
@@ -56,7 +55,6 @@ WHERE {
   ?plaats skos:exactMatch/wgs84:long ?long .
   ?plaats skos:exactMatch/gn:parentCountry ?land .
       
-  #Weergeven van de URI's in tekst
   ?cho dc:title ?title . # titel van het voorwerp
   ?cat skos:prefLabel ?catName .
   ?land gn:name ?landLabel .
