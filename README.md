@@ -1,5 +1,5 @@
 # Functional-Programming
-**De Opdracht**    
+**De opdracht**    
 In deze twee weken heb ik geleerd een visualisatie te maken die wordt geladen aan de hand van data. Deze data komt van het  Nationaal Museum van Wereldculturen. Deze data heb ik eerst opgeschoont door middel van Functional Programming. Vervolgens ga ik deze data gebruiken om de visualisatie te maken door middel van de D3 Library.  
 
 **Wat is Functional Programming?**  
@@ -10,7 +10,6 @@ Functional Programming is het opbouwen van code door 'pure functies'* samen te s
 ## Inhoudsopgave
 * [Doelen](#Doelen)
 * [Concept](#Concept)
-* [Features](#Features)
 * [API](#API)
 * [Credits](#Credits)
 
@@ -23,7 +22,6 @@ De gebruiker kan aan de hand van de visualisatie inzicht krijgen in het type en 
 
 ![concept_functional-programming](https://user-images.githubusercontent.com/45365598/68464932-c7529880-0211-11ea-9cd3-cca7d83361fb.png)
 
-## Features
 ## API
 Om dit concept uit te kunnen werken met d3 heb ik data nodig die ik ophaal aan de hand van een SPARQL query, deze kun je hieronder vinden. De data die ik ophaal heeft veel verschillende variabelen.
 * "Categorie" van het voorwerp
