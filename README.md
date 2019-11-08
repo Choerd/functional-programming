@@ -21,6 +21,7 @@ Functional Programming is het opbouwen van code door 'pure functies'* samen te s
 De gebruiker kan aan de hand van de visualisatie inzicht krijgen in het type en het soort materiaal van de voorwerpen binnen een bepaalde categorie. De categorie kan de gebruiker zelf bepalen door deze te selecteren. Wanneer hij een categorie heeft gevonden kan hij ook nog filteren op een bepaald land om de voorwerpen te kunnen bekijken van bepaalde landen.
 
 ![concept_functional-programming](https://user-images.githubusercontent.com/45365598/68464932-c7529880-0211-11ea-9cd3-cca7d83361fb.png)
+Bron: http://bl.ocks.org/bbest/2de0e25d4840c68f2db1
 
 ## API
 Om dit concept uit te kunnen werken met d3 heb ik data nodig die ik ophaal aan de hand van een SPARQL query, deze kun je hieronder vinden. De data die ik ophaal heeft veel verschillende variabelen.
