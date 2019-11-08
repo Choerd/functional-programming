@@ -64,7 +64,7 @@ WHERE {
 } ORDER BY DESC(?cho)
 ```
 
-</details
+</details>
 
 ## Installeren
 ## Credits
