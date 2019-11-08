@@ -1,5 +1,5 @@
 # Functional-Programming
-**Opdracht** 
+**Opdracht** .   
 In deze twee weken heb ik geleerd een visualisatie te maken die wordt geladen aan de hand van data. Deze data komt van het  Nationaal Museum van Wereldculturen. Deze data heb ik eerst opgeschoont door middel van Functional Programming. Vervolgens ga ik deze data gebruiken om de visualisatie te maken door middel van de D3 Library.  
 
 **Wat is Functional Programming?**
