@@ -28,6 +28,7 @@ Om dit concept uit te kunnen werken met d3 heb ik data nodig die ik ophaal aan d
 Deze data heb ik nodig omdat ik alle voorwerpen uit een bepaalde categorie wil gebruiken. De titel van de voorwerpen is niet perse nodig maar gebruik ik meer als controle of de data die ik opschoon klopt. Het materiaal en het type van het voorwerp wil ik gebruiken om te weergeven in mijn data-visualisatie. Tot slot wil ik de geolocatie gebruiken om een filter te kunnen toevoegen aan mijn concept. Hierdoor zou je ook het materiaal en het type van de voorwerpen in een categorie kunnen filteren en op land.
 
 <details><summary>Mijn SPARQL query</summary>
+	
 ```
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX dct: <http://purl.org/dc/terms/>
@@ -64,6 +65,7 @@ WHERE {
 
 } ORDER BY DESC(?cho)
 ```
+
 </details
 
 ## Installeren
