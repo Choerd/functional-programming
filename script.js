@@ -67,7 +67,7 @@ function filterByCountry(dataArray, land) {
 // IFFE
 (async () => {
     const data = await fetchData()
-    console.log(filterByCountry(data, "Indonesia"));
+    console.log(filterByCountry(data, "Papua New Guinea"));
 })()
 
 
