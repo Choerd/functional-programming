@@ -1,4 +1,13 @@
-body {
+* {
     font-family: Raleway, Arial, Helvetica, sans-serif;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    margin: 20px;
+}
+
+div h1 {
+    margin-bottom: 8px;
 }
