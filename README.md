@@ -18,9 +18,9 @@ Functional Programming is het opbouwen van code door 'pure functies'* samen te s
 * [ ] Basisprincipes leren van ES6
  
 ## Concept
-De gebruiker kan aan de hand van de visualisatie inzicht krijgen in het type en het soort materiaal van de voorwerpen binnen een bepaalde categorie. De categorie kan de gebruiker zelf bepalen door deze te selecteren. Wanneer hij een categorie heeft gevonden kan hij ook nog filteren op een bepaald land om de voorwerpen te kunnen bekijken van bepaalde landen.
+De gebruiker kan aan de hand van de visualisatie inzicht krijgen in het soort materiaal van de voorwerpen in een bepaalde categorie. Deze krijgt hij te zien van de verschillende landen binnen deze categorie. Elk land staat voor een kleur. De grootte van de ballen betekent hoe meer materialen er zijn in die categorie. De gebruiker kan ook zelf bollen verslepen om deze naast elkaar te houden en te vergelijken.
 
-![concept_functional-programming](https://user-images.githubusercontent.com/45365598/68464932-c7529880-0211-11ea-9cd3-cca7d83361fb.png)
+![Concept-functional-programming](https://user-images.githubusercontent.com/45365598/68803690-866ae180-0660-11ea-808c-730090275156.png)
 Bron: http://bl.ocks.org/bbest/2de0e25d4840c68f2db1
 
 ## API
