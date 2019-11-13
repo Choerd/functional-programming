@@ -74,3 +74,11 @@ WHERE {
 </details>
 
 ## Credits
+Hier kun je vinden wie mij heeft geholpen en waarmee dat is geweest. In de wiki kun je vinden wanneer dat is gebeurt.
+
+* Opstarten van mijn fetch() en .then-chain (**Thijs**)
+    * Ik had mijn eigen async fetch met await geschreven maar vond het lastig om hier te zien of hij iets terug gaf. Dit had ik samen met Thijs opgelost met een IFFE. Dit was alleen niet de nette manier dus heeft hij Wessel, Stefan en mij uitgelegt hoe je dit zou kunnen doen met .then wat veel netter is.
+
+* Meegedacht met een opschoon-functie (**Wessel**)
+    * Samen met Wessel heb ik een functie geschreven die we allebei nodig hadden voor het opschonen van onze data. Deze functie zorgde ervoor dat we een object met keys en values om hebben gezet naar een array met deze data erin om te kunnen gebruiken in d3. De manier om deze functie te schrijven kwam doordat ik dit eerst had gevraagt aan **Danny**.
+
