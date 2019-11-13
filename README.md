@@ -15,7 +15,7 @@ Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
 
 ## Inhoudsopgave
 * [Doelen](#Doelen)
-* [Data Transforming Pattern](#Data_Transforming_Pattern )
+* [Data Transforming Pattern](#Data Transforming Pattern )
 * [API](#API)
 * [Credits](#Credits)
 
