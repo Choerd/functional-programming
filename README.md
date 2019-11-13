@@ -15,7 +15,7 @@ Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
 
 ## Inhoudsopgave
 * [Doelen](#Doelen)
-* [Data Transforming Pattern](#Data Transforming Pattern)
+* [Data-transforming-pattern](#Data-transforming-pattern)
 * [API](#API)
 * [Credits](#Credits)
 
@@ -24,7 +24,7 @@ Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
 * [x] Basisprincipes leren van ES6
 * [x] Gebruik maken van d3 om mijn data om te toveren tot visualisatie
  
-## Data Transforming Pattern 
+## Data-transforming-pattern 
  
 ## API
 Om dit concept uit te kunnen werken met d3 heb ik data nodig die ik ophaal aan de hand van een SPARQL query, deze kun je hieronder vinden. De data die ik ophaal heeft veel verschillende variabelen.
