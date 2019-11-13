@@ -15,7 +15,7 @@ Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
 
 ## Inhoudsopgave
 * [Doelen](#Doelen)
-* [Data-transforming-pattern](#Data-transforming-pattern)
+* [Data Transforming Pattern](#Data-Transforming-Pattern)
 * [API](#API)
 * [Credits](#Credits)
 
@@ -24,7 +24,7 @@ Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
 * [x] Basisprincipes leren van ES6
 * [x] Gebruik maken van d3 om mijn data om te toveren tot visualisatie
  
-## Data-transforming-pattern
+## Data Transforming Pattern
 Om te leren hoe je data opschoont met functional programming heb ik een oefening gedaan. Deze kun je ook vinden in mijn wiki.
 [Oefening data opschonen met functional programming](https://github.com/Choerd/functional-programming/wiki/Data-Transforming-Pattern)
  
