@@ -30,14 +30,13 @@ export function amoutOfEachMaterial(readableData) {
     return object
 }
 
-//credits voor bald bitch a.k.a. wessel smit
 export function fiveMostOccuringMaterials(allMaterials) {
     const top5Materials = []
 
     Object.keys(allMaterials).forEach(key => {
         top5Materials.push({
-            aantal: allMaterials[key],
-            materiaal: key.replace(key[0], key[0].toUpperCase())
+            materiaal: key.replace(key[0], key[0].toUpperCase()),
+            aantal: allMaterials[key]
         })
     })
     return top5Materials.sort((lowest, highest) => highest.aantal - lowest.aantal).splice(0, 5)
