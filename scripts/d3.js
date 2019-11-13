@@ -1,5 +1,5 @@
-import fetchData from './data.js'
-import functie from './cleaningData.js'
+import fetchData from './modules/data.js'
+import functie from './modules/cleaningData.js'
 
 fetchData()
     .then(rawData => functie.fixReadability(rawData))
