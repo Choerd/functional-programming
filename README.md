@@ -18,6 +18,7 @@ Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
 * [Data Transforming Pattern](#Data-Transforming-Pattern)
 * [API](#API)
 * [Credits](#Credits)
+* [Waar ik trots op ben](#Waar-ik-trots-op-ben)
 
 ## Doelen
 * [x] Data opschonen door middel van Functional Programming
@@ -90,3 +91,5 @@ Hier kun je vinden wie mij heeft geholpen en waarmee dat is geweest. In de wiki 
 * Meegedacht met een opschoon-functie (**Wessel**)
     * Samen met Wessel heb ik een functie geschreven die we allebei nodig hadden voor het opschonen van onze data. Deze functie zorgde ervoor dat we een object met keys en values om hebben gezet naar een array met deze data erin om te kunnen gebruiken in d3. De manier om deze functie te schrijven kwam doordat ik dit eerst had gevraagt aan **Danny**.
 
+## Waar ik trots op ben
+test
