@@ -103,7 +103,7 @@ Hier kun je vinden wie mij heeft geholpen en waarmee dat is geweest. In de wiki 
 > Deze code gebruik ik om een dynamische domain aan te maken voor in mijn d3. Simpel maar netjes/handig
 
 ```javascript
-export function top5MaterialenPerLand(materialenPerLand) {
+function top5MaterialenPerLand(materialenPerLand) {
     const array = []
 
     materialenPerLand.map(land => {
