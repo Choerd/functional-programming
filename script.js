@@ -3,91 +3,67 @@ import functie from './modules/cleaningData.js'
 
 fetchData()
     .then(rawData => functie.fixReadability(rawData))
-    .then(readableData => functie.amoutOfEachMaterial(readableData))
-    .then(allMaterials => functie.fiveMostOccuringMaterials(allMaterials))
-    .then(d3data => {
+    .then(readableData => functie.materialenVoorElkLand(readableData))
+    .then(data => functie.top5MaterialenPerLand(data))
+    .then(data => functie.landenMet5VerschillendeMaterialen(data))
+    .then(data => functie.totaalAantalMaterialenPerLand(data))
+    .then(data => functie.testmij(data))
+    .then(data => {
+        console.log("Gebruikte data in de visualisatie: ", data)
 
-        console.log(d3data)
+        const allcountries = [...new Set(data.map(visual => visual.land))]
+        const width = 600
+        const height = 600
 
-        var width = 500,
-            height = 500,
-            margin = 70
-
-        var radius = Math.min(width, height) / 2 - margin
-
-        var svg = d3.select("#visualisatie")
+        const svg = d3.select("#my_dataviz")
             .append("svg")
             .attr("width", width)
             .attr("height", height)
-            .append("g")
-            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-        var color = d3.scaleOrdinal()
-            .domain(d3data)
-            .range(["#5C8100", "#8E6C8A", "#BD2D28", "#E6842A", "#137B80"])
+        const color = d3.scaleOrdinal()
+            .domain(allcountries)
+            .range(d3.schemeSet1)
 
-        var pie = d3.pie()
-            .sort(null)
-            .value(function (d) {
-                return d.value.aantal
-            })
-        var data_ready = pie(d3.entries(d3data))
+        const size = d3.scaleLinear()
+            .domain([0, 1500])
+            .range([5, 75])
 
-        var arc = d3.arc()
-            .innerRadius(radius * 0.5)
-            .outerRadius(radius * 0.8)
+        const mouseover = function (d) {
+            console.log("Data van de gehoverde circel: ", d)
+        }
 
-        var outerArc = d3.arc()
-            .innerRadius(radius * 0.9)
-            .outerRadius(radius * 0.9)
-
-        svg
-            .selectAll('allSlices')
-            .data(data_ready)
+        const node = svg.append("g")
+            .selectAll("circle")
+            .data(data)
             .enter()
-            .append('path')
-            .attr('d', arc)
-            .attr('fill', function (d) {
-                return (color(d.data.key))
+            .append("circle")
+            .attr("class", "circle")
+            .attr("r", function (d) {
+                return size(d.aantal)
             })
-            .attr("class", "pie")
+            .attr("cx", width / 2)
+            .attr("cy", height / 2)
+            .style("fill", function (d) {
+                return color(d.land)
+            })
+            .on("mouseover", mouseover)
 
-        svg
-            .selectAll('allPolylines')
-            .data(data_ready)
-            .enter()
-            .append('polyline')
-            .attr('class', 'polyline')
-            .attr('points', function (d) {
-                var posA = arc.centroid(d)
-                var posB = outerArc.centroid(d)
-                var posC = outerArc.centroid(d);
-                var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-                posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1);
-                return [posA, posB, posC]
-            })
+        const simulation = d3.forceSimulation()
+            .force("center", d3.forceCenter().x(width / 2).y(height / 2))
+            .force("charge", d3.forceManyBody().strength(-10))
+            .force("collide", d3.forceCollide().strength(.2).radius(function (d) {
+                return (size(d.value) + 3)
+            }).iterations(1))
 
-        svg
-            .selectAll('allLabels')
-            .data(data_ready)
-            .enter()
-            .append('text')
-            .attr('class', 'labels')
-            .text(function (d) {
-                return d.data.value.materiaal
+        simulation
+            .nodes(data)
+            .on("tick", function (d) {
+                node
+                    .attr("cx", function (d) {
+                        return d.x
+                    })
+                    .attr("cy", function (d) {
+                        return d.y
+                    })
             })
-            .attr('transform', function (d) {
-                var pos = outerArc.centroid(d);
-                var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-                pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-                return 'translate(' + pos + ')';
-            })
-            .style('text-anchor', function (d) {
-                var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-                return (midangle < Math.PI ? 'start' : 'end')
-            })
-    })
-    .catch(error => {
-        console.log("Not able to fetch or clean data, or not able to build your visualisation.")
-        console.error(error)
     })

@@ -1,7 +1,10 @@
 export default {
     fixReadability,
-    amoutOfEachMaterial,
-    fiveMostOccuringMaterials
+    materialenVoorElkLand,
+    top5MaterialenPerLand,
+    landenMet5VerschillendeMaterialen,
+    totaalAantalMaterialenPerLand,
+    testmij
 }
 
 export function fixReadability(data) {
@@ -17,35 +20,110 @@ export function fixReadability(data) {
     })
 }
 
-export function amoutOfEachMaterial(readableData) {
-    const object = new Object()
+export function materialenVoorElkLand(readableData) {
+    const alleMaterialenArray = []
+    const alleLandenArray = [...new Set(readableData.map(voorwerp => voorwerp.land))]
+    const alleLandenMetMaterialenArray = []
 
-    readableData.forEach(dataElement => {
-        if (object[dataElement.materiaal] != null) {
-            object[dataElement.materiaal] += 1
-        } else {
-            object[dataElement.materiaal] = 1
-        }
-    })
-    return object
-}
-
-export function fiveMostOccuringMaterials(allMaterials) {
-    const top5Materials = []
-
-    Object.keys(allMaterials).forEach(key => {
-        top5Materials.push({
-            materiaal: key.replace(key[0], key[0].toUpperCase()),
-            aantal: allMaterials[key]
+    alleLandenArray.forEach(land => {
+        let createObject = new Object()
+        readableData.filter(voorwerp => {
+            if (voorwerp.land.includes(land)) {
+                alleMaterialenArray.push(createObject = {
+                    land: land,
+                    materiaal: voorwerp.materiaal
+                })
+            }
         })
     })
-    return top5Materials.sort((lowest, highest) => highest.aantal - lowest.aantal).splice(0, 5)
+
+    alleLandenArray.forEach(land => {
+        let maakNieuwObject = new Object()
+        alleMaterialenArray.filter(data => {
+            if (data.land === land) {
+                if (maakNieuwObject[data.materiaal] != null) {
+                    maakNieuwObject[data.materiaal] += 1
+                } else {
+                    maakNieuwObject[data.materiaal] = 1
+                }
+            }
+        })
+        alleLandenMetMaterialenArray.push({
+            materiaalObject: maakNieuwObject,
+            land: land,
+        })
+    })
+    return alleLandenMetMaterialenArray
 }
 
-// function filterByCountry(dataArray, land) {
-//     return dataArray.filter((item) => item.land == land)
+export function top5MaterialenPerLand(data) {
+    var array = []
 
-//     // Landen om als voorbeeld te laten zien: 
-//     //  * Indonesia
-//     //  * Papua New Guinea
-// }
+    data.map(land => {
+        var landVoorArray = []
+
+        Object.keys(land.materiaalObject).forEach(key => {
+            var createObject = new Object()
+            createObject = {
+                materiaal: key,
+                aantal: land.materiaalObject[key],
+                land: land.land
+            }
+            landVoorArray.push(createObject)
+        })
+
+        landVoorArray.sort(function (a, b) {
+            return b.aantal - a.aantal
+        })
+        array.push(landVoorArray.splice(landVoorArray, 5))
+    })
+    return array
+}
+
+export function landenMet5VerschillendeMaterialen(data) {
+    return data.filter(array => {
+        if (array.length == 5) {
+            return array
+        }
+    })
+}
+
+function totaalAantalMaterialenPerLand(data) {
+    var dataArray = []
+    data.map(land => {
+        var createObject = new Object()
+        land.forEach(land => {
+            createObject = {
+                totaal: land.aantal + land.aantal + land.aantal + land.aantal + land.aantal
+            }
+        });
+        land.push(createObject)
+        dataArray.push(land)
+    });
+    return dataArray
+}
+
+function testmij(data) {
+    data.sort((a, b) => b[5].totaal - a[5].totaal).splice(5, data.length)
+
+    var rawDataArray = []
+    data.map(top5 => {
+        top5.forEach(test => {
+            var createObject = new Object()
+            createObject = {
+                land: test.land,
+                aantal: test.aantal,
+                materiaal: test.materiaal
+            }
+            rawDataArray.push(createObject)
+        })
+    })
+
+    var cleanDataArray = []
+    rawDataArray.forEach(object => {
+        if (object.aantal != undefined) {
+            cleanDataArray.push(object)
+        }
+    })
+    return cleanDataArray
+}
