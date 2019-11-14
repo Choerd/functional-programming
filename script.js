@@ -4,10 +4,10 @@ import functie from './modules/cleaningData.js'
 fetchData()
     .then(rawData => functie.fixReadability(rawData))
     .then(readableData => functie.materialenVoorElkLand(readableData))
-    .then(data => functie.top5MaterialenPerLand(data))
-    .then(data => functie.landenMet5VerschillendeMaterialen(data))
-    .then(data => functie.totaalAantalMaterialenPerLand(data))
-    .then(data => functie.testmij(data))
+    .then(materialenPerLand => functie.top5MaterialenPerLand(materialenPerLand))
+    .then(top5MeesteMaterialenPerLand => functie.landenMet5VerschillendeMaterialen(top5MeesteMaterialenPerLand))
+    .then(totaalMaterialenPerLand => functie.totaalAantalMaterialenPerLand(totaalMaterialenPerLand))
+    .then(top5MaterialenTop5Landen => functie.arrayToObject(top5MaterialenTop5Landen))
     .then(data => {
         console.log("Gebruikte data in de visualisatie: ", data)
 

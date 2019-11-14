@@ -4,17 +4,14 @@ export default {
     top5MaterialenPerLand,
     landenMet5VerschillendeMaterialen,
     totaalAantalMaterialenPerLand,
-    testmij
+    arrayToObject
 }
 
 export function fixReadability(data) {
     return data.map((result, index) => {
         return {
             id: index,
-            cho: result.cho.value,
-            title: result.title.value,
             materiaal: result.materiaalLabel.value,
-            type: result.voorwerpType.value,
             land: result.landLabel.value
         }
     })
@@ -25,7 +22,7 @@ export function materialenVoorElkLand(readableData) {
     const alleLandenArray = [...new Set(readableData.map(voorwerp => voorwerp.land))]
     const alleLandenMetMaterialenArray = []
 
-    alleLandenArray.forEach(land => {
+    alleLandenArray.map(land => {
         let createObject = new Object()
         readableData.filter(voorwerp => {
             if (voorwerp.land.includes(land)) {
@@ -37,7 +34,7 @@ export function materialenVoorElkLand(readableData) {
         })
     })
 
-    alleLandenArray.forEach(land => {
+    alleLandenArray.map(land => {
         let maakNieuwObject = new Object()
         alleMaterialenArray.filter(data => {
             if (data.land === land) {
@@ -56,13 +53,13 @@ export function materialenVoorElkLand(readableData) {
     return alleLandenMetMaterialenArray
 }
 
-export function top5MaterialenPerLand(data) {
+export function top5MaterialenPerLand(materialenPerLand) {
+
     var array = []
 
-    data.map(land => {
+    materialenPerLand.map(land => {
         var landVoorArray = []
-
-        Object.keys(land.materiaalObject).forEach(key => {
+        Object.keys(land.materiaalObject).map(key => {
             var createObject = new Object()
             createObject = {
                 materiaal: key,
@@ -80,17 +77,17 @@ export function top5MaterialenPerLand(data) {
     return array
 }
 
-export function landenMet5VerschillendeMaterialen(data) {
-    return data.filter(array => {
+export function landenMet5VerschillendeMaterialen(top5MeesteMaterialenPerLand) {
+    return top5MeesteMaterialenPerLand.filter(array => {
         if (array.length == 5) {
             return array
         }
     })
 }
 
-function totaalAantalMaterialenPerLand(data) {
+function totaalAantalMaterialenPerLand(totaalMaterialenPerLand) {
     var dataArray = []
-    data.map(land => {
+    totaalMaterialenPerLand.map(land => {
         var createObject = new Object()
         land.forEach(land => {
             createObject = {
@@ -103,17 +100,17 @@ function totaalAantalMaterialenPerLand(data) {
     return dataArray
 }
 
-function testmij(data) {
-    data.sort((a, b) => b[5].totaal - a[5].totaal).splice(5, data.length)
+function arrayToObject(top5MaterialenTop5Landen) {
+    top5MaterialenTop5Landen.sort((a, b) => b[5].totaal - a[5].totaal).splice(5, top5MaterialenTop5Landen.length)
 
     var rawDataArray = []
-    data.map(top5 => {
-        top5.forEach(test => {
+    top5MaterialenTop5Landen.map(array => {
+        array.map(object => {
             var createObject = new Object()
             createObject = {
-                land: test.land,
-                aantal: test.aantal,
-                materiaal: test.materiaal
+                land: object.land,
+                aantal: object.aantal,
+                materiaal: object.materiaal
             }
             rawDataArray.push(createObject)
         })
