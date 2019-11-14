@@ -102,6 +102,26 @@ Hier kun je vinden wie mij heeft geholpen en waarmee dat is geweest. In de wiki 
 ```
 > Deze code gebruik ik om een dynamische domain aan te maken voor in mijn d3. Simpel maar netjes/handig
 
+
+```javascript
+export function materialenVoorElkLand(readableData) {
+    const alleMaterialenArray = []
+    const alleLandenArray = [...new Set(readableData.map(voorwerp => voorwerp.land))]
+
+    alleLandenArray.map(land => {
+        let createObject = new Object()
+        readableData.filter(voorwerp => {
+            if (voorwerp.land.includes(land)) {
+                alleMaterialenArray.push(createObject = {
+                    land: land,
+                    materiaal: voorwerp.materiaal
+                })
+            }
+        })
+    })
+```
+> Door middel van deze functie maak ik voor elk land een array aan waar in alle materialen doe die bij dat land horen. Dit was een belangrijke stap in mijn opschoon proces.
+
 ```javascript
 function top5MaterialenPerLand(materialenPerLand) {
     const array = []
