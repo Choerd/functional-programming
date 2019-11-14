@@ -85,4 +85,7 @@ fetchData()
                 return (midangle < Math.PI ? 'start' : 'end')
             })
     })
-    .catch(error => console.log("Not able to fetch or clean data, or not able to build your visualisation" + error))
+    .catch(error => {
+        console.log("Not able to fetch or clean data, or not able to build your visualisation.")
+        console.error(error)
+    })
