@@ -39,6 +39,9 @@ Om dit concept uit te kunnen werken met d3 heb ik data nodig die ik ophaal aan d
 
 Deze data heb ik nodig omdat ik alle voorwerpen uit een bepaalde categorie wil gebruiken. De titel van de voorwerpen is niet perse nodig maar gebruik ik meer als controle of de data die ik opschoon klopt. Het materiaal en het type van het voorwerp wil ik gebruiken om te weergeven in mijn data-visualisatie. Tot slot wil ik de geolocatie gebruiken om een filter te kunnen toevoegen aan mijn concept. Hierdoor zou je ook het materiaal en het type van de voorwerpen in een categorie kunnen filteren en op land.
 
+**Welke data heb ik uiteindelijk gebruikt en wat heb ik met de data gedaan die ik niet heb gebruikt?**  
+De data die ik uiteindelijk heb gebruikt zijn de **materialen en de geolocatie.** Deze heb ik niet allemaal gebruikt maar ik ben een gedeelte van de data verloren tijdens het opschonen. Omdat een deel van de landen heel weinig data bevatten heb ik ervoor gekozen om een top 5 van te maken van de landen met de meeste voorwerpen/materialen en daarin ook weer een top 5 van de meeste materialen van de voorwerpen. Hierdoor krijg je dus 5 bollen van materialen per land, keer 5 landen. Hierdoor kan je fijner vergelijken dan dat er 60 bollen staan van 30 landen.
+
 <details><summary>Mijn SPARQL query</summary>
 	
 ```
