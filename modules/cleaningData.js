@@ -54,13 +54,12 @@ export function materialenVoorElkLand(readableData) {
 }
 
 export function top5MaterialenPerLand(materialenPerLand) {
-
-    var array = []
+    const array = []
 
     materialenPerLand.map(land => {
-        var landVoorArray = []
+        const landVoorArray = []
         Object.keys(land.materiaalObject).map(key => {
-            var createObject = new Object()
+            let createObject = new Object()
             createObject = {
                 materiaal: key,
                 aantal: land.materiaalObject[key],
@@ -86,9 +85,9 @@ export function landenMet5VerschillendeMaterialen(top5MeesteMaterialenPerLand) {
 }
 
 function totaalAantalMaterialenPerLand(totaalMaterialenPerLand) {
-    var dataArray = []
+    const dataArray = []
     totaalMaterialenPerLand.map(land => {
-        var createObject = new Object()
+        let createObject = new Object()
         land.forEach(land => {
             createObject = {
                 totaal: land.aantal + land.aantal + land.aantal + land.aantal + land.aantal
@@ -103,10 +102,10 @@ function totaalAantalMaterialenPerLand(totaalMaterialenPerLand) {
 function arrayToObject(top5MaterialenTop5Landen) {
     top5MaterialenTop5Landen.sort((a, b) => b[5].totaal - a[5].totaal).splice(5, top5MaterialenTop5Landen.length)
 
-    var rawDataArray = []
+    const rawDataArray = []
     top5MaterialenTop5Landen.map(array => {
         array.map(object => {
-            var createObject = new Object()
+            let createObject = new Object()
             createObject = {
                 land: object.land,
                 aantal: object.aantal,
@@ -116,7 +115,7 @@ function arrayToObject(top5MaterialenTop5Landen) {
         })
     })
 
-    var cleanDataArray = []
+    const cleanDataArray = []
     rawDataArray.forEach(object => {
         if (object.aantal != undefined) {
             cleanDataArray.push(object)
