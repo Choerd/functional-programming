@@ -7,6 +7,8 @@ fetchData()
     .then(allMaterials => functie.fiveMostOccuringMaterials(allMaterials))
     .then(d3data => {
 
+        console.log(d3data)
+
         var width = 500,
             height = 500,
             margin = 70
