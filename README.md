@@ -92,4 +92,37 @@ Hier kun je vinden wie mij heeft geholpen en waarmee dat is geweest. In de wiki 
     * Samen met Wessel heb ik een functie geschreven die we allebei nodig hadden voor het opschonen van onze data. Deze functie zorgde ervoor dat we een object met keys en values om hebben gezet naar een array met deze data erin om te kunnen gebruiken in d3. De manier om deze functie te schrijven kwam doordat ik dit eerst had gevraagt aan **Danny**.
 
 ## Waar ik trots op ben
-test
+
+```javascript
+  const alleLanden = [...new Set(data.map(naam => naam.land))]
+ 
+  const color = d3.scaleOrdinal()
+   .domain(alleLanden)
+   .range(d3.schemeSet1)
+```
+> Deze code gebruik ik om een dynamische domain aan te maken voor in mijn d3. Simpel maar netjes/handig
+
+```javascript
+export function top5MaterialenPerLand(materialenPerLand) {
+    const array = []
+
+    materialenPerLand.map(land => {
+        const landVoorArray = []
+        Object.keys(land.materiaalObject).forEach(key => {
+            let createObject = new Object()
+            createObject = {
+                materiaal: key,
+                aantal: land.materiaalObject[key],
+                land: land.land
+            }
+            landVoorArray.push(createObject)
+        })
+        landVoorArray.sort(function (a, b) {
+            return b.aantal - a.aantal
+        })
+        array.push(landVoorArray.splice(landVoorArray, 5))
+    })
+    return array
+}
+```
+> In deze functie maak ik van een object van alle materialen binnen een land een nieuw object aan, die ik weer push naar een array. Deze array sorteer ik vervolgens en splice ik deze. Deze array return ik en zo heb ik van elk land die in de categorie voorkomt een top 5 van de materialen.
