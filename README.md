@@ -7,22 +7,27 @@ Functional Programming is het opbouwen van code door 'pure functies'* samen te s
 
 * Pure functies zijn: functies die geen toegang hebben tot het aanpassen van een variabel binnen een functie maar een waarde teruggeven. 
 
+## Concept
+De gebruiker kan aan de hand van de visualisatie inzicht krijgen in het soort materiaal van de voorwerpen in een bepaalde categorie. Deze krijgt hij te zien van de verschillende landen binnen deze categorie. Elk land staat voor een kleur. De grootte van de ballen betekent hoe meer materialen er zijn in die categorie. De gebruiker kan ook zelf bollen verslepen om deze naast elkaar te houden en te vergelijken.
+
+![Concept-functional-programming](https://user-images.githubusercontent.com/45365598/68803690-866ae180-0660-11ea-808c-730090275156.png)
+Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
+
 ## Inhoudsopgave
 * [Doelen](#Doelen)
-* [Concept](#Concept)
+* [Data Transforming Pattern](#Data-Transforming-Pattern)
 * [API](#API)
 * [Credits](#Credits)
 
 ## Doelen
-* [ ] Data opschonen door middel van Functional Programming
-* [ ] Basisprincipes leren van ES6
+* [x] Data opschonen door middel van Functional Programming
+* [x] Basisprincipes leren van ES6
+* [x] Gebruik maken van d3 om mijn data om te toveren tot visualisatie
  
-## Concept
-De gebruiker kan aan de hand van de visualisatie inzicht krijgen in het type en het soort materiaal van de voorwerpen binnen een bepaalde categorie. De categorie kan de gebruiker zelf bepalen door deze te selecteren. Wanneer hij een categorie heeft gevonden kan hij ook nog filteren op een bepaald land om de voorwerpen te kunnen bekijken van bepaalde landen.
-
-![concept_functional-programming](https://user-images.githubusercontent.com/45365598/68464932-c7529880-0211-11ea-9cd3-cca7d83361fb.png)
-Bron: http://bl.ocks.org/bbest/2de0e25d4840c68f2db1
-
+## Data Transforming Pattern
+Om te leren hoe je data opschoont met functional programming heb ik een oefening gedaan. Deze kun je ook vinden in mijn wiki.
+[Oefening data opschonen met functional programming](https://github.com/Choerd/functional-programming/wiki/Data-Transforming-Pattern)
+ 
 ## API
 Om dit concept uit te kunnen werken met d3 heb ik data nodig die ik ophaal aan de hand van een SPARQL query, deze kun je hieronder vinden. De data die ik ophaal heeft veel verschillende variabelen.
 * "Categorie" van het voorwerp
@@ -74,3 +79,11 @@ WHERE {
 </details>
 
 ## Credits
+Hier kun je vinden wie mij heeft geholpen en waarmee dat is geweest. In de wiki kun je vinden wanneer dat is gebeurt.
+
+* Opstarten van mijn fetch() en .then-chain (**Thijs**)
+    * Ik had mijn eigen async fetch met await geschreven maar vond het lastig om hier te zien of hij iets terug gaf. Dit had ik samen met Thijs opgelost met een IFFE. Dit was alleen niet de nette manier dus heeft hij Wessel, Stefan en mij uitgelegt hoe je dit zou kunnen doen met .then wat veel netter is.
+
+* Meegedacht met een opschoon-functie (**Wessel**)
+    * Samen met Wessel heb ik een functie geschreven die we allebei nodig hadden voor het opschonen van onze data. Deze functie zorgde ervoor dat we een object met keys en values om hebben gezet naar een array met deze data erin om te kunnen gebruiken in d3. De manier om deze functie te schrijven kwam doordat ik dit eerst had gevraagt aan **Danny**.
+
