@@ -11,7 +11,7 @@ fetchData()
     .then(data => {
         console.log("Gebruikte data in de visualisatie: ", data)
 
-        const allcountries = [...new Set(data.map(visual => visual.land))]
+        const alleLanden = [...new Set(data.map(naam => naam.land))]
         const width = 600
         const height = 600
 
@@ -21,7 +21,7 @@ fetchData()
             .attr("height", height)
 
         const color = d3.scaleOrdinal()
-            .domain(allcountries)
+            .domain(alleLanden)
             .range(d3.schemeSet1)
 
         const size = d3.scaleLinear()

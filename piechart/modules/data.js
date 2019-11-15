@@ -1,5 +1,5 @@
 const endpoint =
-    "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-24/sparql"
+  "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-24/sparql"
 
 const sparql = `
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
@@ -11,10 +11,10 @@ PREFIX gn: <http://www.geonames.org/ontology#>
 
 SELECT  ?cho
         ?catName
-		?title
-		?materiaalLabel
-		?voorwerpType
-		?landLabel
+		    ?title
+	    	?materiaalLabel
+		    ?voorwerpType
+		    ?landLabel
 WHERE {
 <https://hdl.handle.net/20.500.11840/termmaster2809> skos:narrower ?cat . # keuze maken in categorie
 
@@ -38,8 +38,8 @@ WHERE {
 `
 
 export default async function fetchData() {
-    const response = await fetch(endpoint + "?query=" + encodeURIComponent(sparql) + "&format=json")
-    const data = await response.json()
+  const response = await fetch(endpoint + "?query=" + encodeURIComponent(sparql) + "&format=json")
+  const data = await response.json()
 
-    return data.results.bindings
+  return data.results.bindings
 }

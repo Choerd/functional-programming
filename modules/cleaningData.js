@@ -8,9 +8,8 @@ export default {
 }
 
 export function fixReadability(data) {
-    return data.map((result, index) => {
+    return data.map((result) => {
         return {
-            id: index,
             materiaal: result.materiaalLabel.value,
             land: result.landLabel.value
         }
@@ -58,7 +57,7 @@ export function top5MaterialenPerLand(materialenPerLand) {
 
     materialenPerLand.map(land => {
         const landVoorArray = []
-        Object.keys(land.materiaalObject).map(key => {
+        Object.keys(land.materiaalObject).forEach(key => {
             let createObject = new Object()
             createObject = {
                 materiaal: key,
@@ -67,7 +66,6 @@ export function top5MaterialenPerLand(materialenPerLand) {
             }
             landVoorArray.push(createObject)
         })
-
         landVoorArray.sort(function (a, b) {
             return b.aantal - a.aantal
         })
@@ -84,7 +82,7 @@ export function landenMet5VerschillendeMaterialen(top5MeesteMaterialenPerLand) {
     })
 }
 
-function totaalAantalMaterialenPerLand(totaalMaterialenPerLand) {
+export function totaalAantalMaterialenPerLand(totaalMaterialenPerLand) {
     const dataArray = []
     totaalMaterialenPerLand.map(land => {
         let createObject = new Object()
@@ -99,7 +97,7 @@ function totaalAantalMaterialenPerLand(totaalMaterialenPerLand) {
     return dataArray
 }
 
-function arrayToObject(top5MaterialenTop5Landen) {
+export function arrayToObject(top5MaterialenTop5Landen) {
     top5MaterialenTop5Landen.sort((a, b) => b[5].totaal - a[5].totaal).splice(5, top5MaterialenTop5Landen.length)
 
     const rawDataArray = []

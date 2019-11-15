@@ -7,12 +7,7 @@ export default {
 export function fixReadability(data) {
     return data.map((result, index) => {
         return {
-            id: index,
-            cho: result.cho.value,
-            title: result.title.value,
             materiaal: result.materiaalLabel.value,
-            type: result.voorwerpType.value,
-            land: result.landLabel.value
         }
     })
 }
@@ -41,11 +36,3 @@ export function fiveMostOccuringMaterials(allMaterials) {
     })
     return top5Materials.sort((lowest, highest) => highest.aantal - lowest.aantal).splice(0, 5)
 }
-
-// function filterByCountry(dataArray, land) {
-//     return dataArray.filter((item) => item.land == land)
-
-//     // Landen om als voorbeeld te laten zien: 
-//     //  * Indonesia
-//     //  * Papua New Guinea
-// }
