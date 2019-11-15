@@ -104,7 +104,7 @@ Hier kun je vinden wie mij heeft geholpen en waarmee dat is geweest. In de wiki 
 
 
 ```javascript
-export function materialenVoorElkLand(readableData) {
+function materialenVoorElkLand(readableData) {
     const alleMaterialenArray = []
     const alleLandenArray = [...new Set(readableData.map(voorwerp => voorwerp.land))]
 
