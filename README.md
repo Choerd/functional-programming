@@ -29,7 +29,7 @@ Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
 Om te leren hoe je data opschoont met functional programming heb ik een oefening gedaan. Deze kun je ook vinden in mijn wiki.
 [Oefening data opschonen met functional programming](https://github.com/Choerd/functional-programming/wiki/Data-Transforming-Pattern)
 
-[Documentatie Piechart](https://github.com/Choerd/functional-programming/tree/master/piechart)
+[Documentatie Piechart](https://github.com/Choerd/functional-programming/tree/master/piechart)  
 [Documentatie Bubblechart](https://github.com/Choerd/functional-programming/wiki/Bubblechart)
  
 ## API
