@@ -28,6 +28,9 @@ Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
 ## Data Transforming Pattern
 Om te leren hoe je data opschoont met functional programming heb ik een oefening gedaan. Deze kun je ook vinden in mijn wiki.
 [Oefening data opschonen met functional programming](https://github.com/Choerd/functional-programming/wiki/Data-Transforming-Pattern)
+
+[Documentatie Piechart](https://github.com/Choerd/functional-programming/tree/master/piechart)
+[Documentatie Bubblechart](https://github.com/Choerd/functional-programming/wiki/Bubblechart)
  
 ## API
 Om dit concept uit te kunnen werken met d3 heb ik data nodig die ik ophaal aan de hand van een SPARQL query, deze kun je hieronder vinden. De data die ik ophaal heeft veel verschillende variabelen.
