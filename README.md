@@ -18,6 +18,7 @@ Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
 * [Data Transforming Pattern](#Data-Transforming-Pattern)
 * [API](#API)
 * [Credits](#Credits)
+* [Waar ik trots op ben](#Waar-ik-trots-op-ben)
 
 ## Doelen
 * [x] Data opschonen door middel van Functional Programming
@@ -27,6 +28,9 @@ Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
 ## Data Transforming Pattern
 Om te leren hoe je data opschoont met functional programming heb ik een oefening gedaan. Deze kun je ook vinden in mijn wiki.
 [Oefening data opschonen met functional programming](https://github.com/Choerd/functional-programming/wiki/Data-Transforming-Pattern)
+
+[Documentatie Piechart](https://github.com/Choerd/functional-programming/tree/master/piechart)  
+[Documentatie Bubblechart](https://github.com/Choerd/functional-programming/wiki/Bubblechart)
  
 ## API
 Om dit concept uit te kunnen werken met d3 heb ik data nodig die ik ophaal aan de hand van een SPARQL query, deze kun je hieronder vinden. De data die ik ophaal heeft veel verschillende variabelen.
@@ -90,3 +94,58 @@ Hier kun je vinden wie mij heeft geholpen en waarmee dat is geweest. In de wiki 
 * Meegedacht met een opschoon-functie (**Wessel**)
     * Samen met Wessel heb ik een functie geschreven die we allebei nodig hadden voor het opschonen van onze data. Deze functie zorgde ervoor dat we een object met keys en values om hebben gezet naar een array met deze data erin om te kunnen gebruiken in d3. De manier om deze functie te schrijven kwam doordat ik dit eerst had gevraagt aan **Danny**.
 
+## Waar ik trots op ben
+
+```javascript
+  const alleLanden = [...new Set(data.map(naam => naam.land))]
+ 
+  const color = d3.scaleOrdinal()
+   .domain(alleLanden)
+   .range(d3.schemeSet1)
+```
+> Deze code gebruik ik om een dynamische domain aan te maken voor in mijn d3. Simpel maar netjes/handig
+
+
+```javascript
+function materialenVoorElkLand(readableData) {
+    const alleMaterialenArray = []
+    const alleLandenArray = [...new Set(readableData.map(voorwerp => voorwerp.land))]
+
+    alleLandenArray.map(land => {
+        let createObject = new Object()
+        readableData.filter(voorwerp => {
+            if (voorwerp.land.includes(land)) {
+                alleMaterialenArray.push(createObject = {
+                    land: land,
+                    materiaal: voorwerp.materiaal
+                })
+            }
+        })
+    })
+```
+> Door middel van deze functie maak ik voor elk land een array aan waar in alle materialen doe die bij dat land horen. Dit was een belangrijke stap in mijn opschoon proces.
+
+```javascript
+function top5MaterialenPerLand(materialenPerLand) {
+    const array = []
+
+    materialenPerLand.map(land => {
+        const landVoorArray = []
+        Object.keys(land.materiaalObject).forEach(key => {
+            let createObject = new Object()
+            createObject = {
+                materiaal: key,
+                aantal: land.materiaalObject[key],
+                land: land.land
+            }
+            landVoorArray.push(createObject)
+        })
+        landVoorArray.sort(function (a, b) {
+            return b.aantal - a.aantal
+        })
+        array.push(landVoorArray.splice(landVoorArray, 5))
+    })
+    return array
+}
+```
+> In deze functie maak ik van een object van alle materialen binnen een land een nieuw object aan, die ik weer push naar een array. Deze array sorteer ik vervolgens en splice ik deze. Deze array return ik en zo heb ik van elk land die in de categorie voorkomt een top 5 van de materialen.
