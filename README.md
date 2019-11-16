@@ -12,6 +12,7 @@ De gebruiker kan aan de hand van de visualisatie inzicht krijgen in het soort ma
 
 ![Concept-functional-programming](https://user-images.githubusercontent.com/45365598/68803690-866ae180-0660-11ea-808c-730090275156.png)
 Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
+Bron: https://www.d3-graph-gallery.com/graph/circularpacking_template.html
 
 ## Inhoudsopgave
 * [Doelen](#Doelen)
