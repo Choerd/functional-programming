@@ -14,30 +14,28 @@ fetchData()
         const alleLanden = [...new Set(data.map(naam => naam.land))]
         // set the dimensions and margins of the graph
 
-        var parentDiv = document.querySelector(".viz-container")
-        console.log(parentDiv.clientWidth)
-
-        var width = parentDiv.clientWidth
-        var height = parentDiv.clientHeight
+        const parentDiv = document.querySelector(".viz-container")
+        const width = parentDiv.clientWidth
+        const height = parentDiv.clientHeight
 
         // append the svg object to the body of the page
-        var svg = d3.select("#my_dataviz")
+        const svg = d3.select("#my_dataviz")
             .append("svg")
             .attr("width", width)
             .attr("height", height)
 
         // Color palette for continents?
-        var color = d3.scaleOrdinal()
+        const color = d3.scaleOrdinal()
             .domain(alleLanden)
             .range(d3.schemeSet1);
 
         // Size scale for countries
-        var size = d3.scaleLinear()
+        const size = d3.scaleLinear()
             .domain([0, 800])
             .range([10, 75]) // circle will be between 7 and 55 px wide
 
         // create a tooltip
-        var Tooltip = d3.select("#my_dataviz")
+        const Tooltip = d3.select("#my_dataviz")
             .append("div")
             .style("opacity", 0)
             .attr("class", "tooltip")
@@ -48,25 +46,24 @@ fetchData()
             .style("padding", "5px")
 
         // Three function that change the tooltip when user hover / move / leave a cell
-        var mouseover = function (d) {
+        const mouseover = function (d) {
             Tooltip
                 .style("opacity", 1)
                 .style("position", "absolute")
         }
-        var mousemove = function (d) {
+        const mousemove = function (d) {
             Tooltip
                 .html('<u>' + d.land + '</u>' + "<br>" + d.aantal + " voorwerpen van " + d.materiaal)
                 .style("left", (d3.mouse(this)[0] + 20) + "px")
                 .style("top", (d3.mouse(this)[1]) + "px")
-            console.log(d3.mouse(this))
         }
-        var mouseleave = function (d) {
+        const mouseleave = function (d) {
             Tooltip
                 .style("opacity", 0)
         }
 
         // Initialize the circle: all located at the center of the svg area
-        var node = svg.append("g")
+        const node = svg.append("g")
             .selectAll("circle")
             .data(data)
             .enter()
@@ -92,7 +89,7 @@ fetchData()
                 .on("end", dragended));
 
         // Features of the forces applied to the nodes:
-        var simulation = d3.forceSimulation()
+        const simulation = d3.forceSimulation()
             .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Attraction to the center of the svg area
             .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
             .force("collide", d3.forceCollide().strength(.2).radius(function (d) {
