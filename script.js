@@ -14,13 +14,14 @@ fetchData()
         // Variabelen
         const alleLanden = [...new Set(data.map(naam => naam.land))] // Aanmaken van verschillende categoriën voor bepalen van de kleur
         const dataVisContainer = document.querySelector(".datavis-container")
+        const margin = 40
         const width = dataVisContainer.clientWidth
         const height = dataVisContainer.clientHeight
 
         const svg = d3.select("#datavis")
             .append("svg")
-            .attr("width", width)
-            .attr("height", height)
+            .attr("width", width - margin)
+            .attr("height", height - margin)
 
         // Color palette for continents?
         const color = d3.scaleOrdinal()
