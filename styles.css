@@ -8,9 +8,16 @@ body {
     text-align: center;
 }
 
+.viz-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+}
+
 .info {
     position: relative;
-    top: 100px;
+    top: 10px;
 }
 
 .circle {
