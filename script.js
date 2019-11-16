@@ -11,39 +11,31 @@ fetchData()
     .then(data => {
         console.log("Gebruikte data in de visualisatie: ", data)
 
-        const alleLanden = [...new Set(data.map(naam => naam.land))]
-        // set the dimensions and margins of the graph
+        // Variabelen
+        const alleLanden = [...new Set(data.map(naam => naam.land))] // Aanmaken van verschillende categoriën voor bepalen van de kleur
+        const dataVisContainer = document.querySelector(".datavis-container")
+        const width = dataVisContainer.clientWidth
+        const height = dataVisContainer.clientHeight
 
-        const parentDiv = document.querySelector(".viz-container")
-        const width = parentDiv.clientWidth
-        const height = parentDiv.clientHeight
-
-        // append the svg object to the body of the page
-        const svg = d3.select("#my_dataviz")
+        const svg = d3.select("#datavis")
             .append("svg")
             .attr("width", width)
             .attr("height", height)
 
         // Color palette for continents?
         const color = d3.scaleOrdinal()
-            .domain(alleLanden)
+            .domain(alleLanden) // Alle landen in de array krijgen een eigen kleur
             .range(d3.schemeSet1);
 
         // Size scale for countries
         const size = d3.scaleLinear()
-            .domain([0, 800])
+            .domain([0, 1100])
             .range([10, 75]) // circle will be between 7 and 55 px wide
 
         // create a tooltip
-        const Tooltip = d3.select("#my_dataviz")
+        const Tooltip = d3.select("#datavis")
             .append("div")
-            .style("opacity", 0)
             .attr("class", "tooltip")
-            .style("background-color", "white")
-            .style("border", "solid")
-            .style("border-width", "2px")
-            .style("border-radius", "5px")
-            .style("padding", "5px")
 
         // Three function that change the tooltip when user hover / move / leave a cell
         const mouseover = function (d) {
@@ -53,7 +45,7 @@ fetchData()
         }
         const mousemove = function (d) {
             Tooltip
-                .html('<u>' + d.land + '</u>' + "<br>" + d.aantal + " voorwerpen van " + d.materiaal)
+                .html('<span>' + d.land + '</span>' + "<br><b>" + d.aantal + "</b> voorwerpen van <b>" + d.materiaal + "</b>")
                 .style("left", (d3.mouse(this)[0] + 20) + "px")
                 .style("top", (d3.mouse(this)[1]) + "px")
         }
@@ -68,7 +60,7 @@ fetchData()
             .data(data)
             .enter()
             .append("circle")
-            .attr("class", "node")
+            .attr("class", "circle")
             .attr("r", function (d) {
                 return size(d.aantal)
             })
@@ -77,24 +69,19 @@ fetchData()
             .style("fill", function (d) {
                 return color(d.land)
             })
-            .style("fill-opacity", 0.8)
-            .attr("stroke", "black")
-            .style("stroke-width", 1)
             .on("mouseover", mouseover) // What to do when hovered
             .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)
             .call(d3.drag() // call specific function when circle is dragged
                 .on("start", dragstarted)
                 .on("drag", dragged)
-                .on("end", dragended));
+                .on("end", dragended))
 
         // Features of the forces applied to the nodes:
         const simulation = d3.forceSimulation()
-            .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Attraction to the center of the svg area
-            .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
-            .force("collide", d3.forceCollide().strength(.2).radius(function (d) {
-                return (size(d.aantal) + 3)
-            }).iterations(1)) // Force that avoids circle overlapping
+            .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Het aanmaken van de circels in (dit geval) het midden
+            .force("charge", d3.forceManyBody().strength(.1)) // De kracht waarmee de circels tot elkaar worden aangetrokken (> 0 hoe sterker aangetrokken tot elkaar)
+            .force("collide", d3.forceCollide().strength(.2).radius(d => (size(d.aantal) + 3)).iterations(1)) //.iterations zorgt ervoor dat dat de circels niet over elkaar heen gaan (> 0) 
 
         // Apply these forces to the nodes and update their positions.
         // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
@@ -120,6 +107,8 @@ fetchData()
         function dragged(d) {
             d.fx = d3.event.x;
             d.fy = d3.event.y;
+            Tooltip
+                .style("opacity", 0)
         }
 
         function dragended(d) {

@@ -27,7 +27,7 @@ export function materialenVoorElkLand(readableData) {
             if (voorwerp.land.includes(land)) {
                 alleMaterialenArray.push(createObject = {
                     land: land,
-                    materiaal: voorwerp.materiaal
+                    materiaal: voorwerp.materiaal,
                 })
             }
         })
