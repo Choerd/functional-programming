@@ -18,12 +18,12 @@ PREFIX gn: <http://www.geonames.org/ontology#>
 
 SELECT  ?cho
         ?catName
-		?title
-		?materiaalLabel
-		?voorwerpType
-		?landLabel
+		    ?title
+		    ?materiaalLabel
+		    ?voorwerpType
+		    ?landLabel
 WHERE {
-<https://hdl.handle.net/20.500.11840/termmaster` + categorie[3] + `> skos:narrower ?cat . # keuze maken in categorie
+<https://hdl.handle.net/20.500.11840/termmaster` + categorie[0] + `> skos:narrower ?cat . # keuze maken in categorie
 
   # variabelen definiëren
   ?cho edm:isRelatedTo ?cat . # ophalen van de link/uri van het voorwerp
