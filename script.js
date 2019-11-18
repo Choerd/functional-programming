@@ -59,7 +59,7 @@ fetchData()
                 }
             })
             .attr("class", "text") // Krijgt class mee voor stijling
-            .on("mouseover", (d => (console.log(d))))
+            .on("mouseover", (d => (console.log(d)))) // Loggen van de data van gehoverde circle
 
         const simulation = d3.forceSimulation()
             .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Plaatsen in het midden
@@ -69,11 +69,11 @@ fetchData()
         simulation
             .nodes(data)
             .on("tick", function (d) {
-                circle
+                circle // Plaatsen van circles
                     .attr("cx", (d => d.x)) // Plaatsen van de circles op de X-as van de svg
                     .attr("cy", (d => d.y)) // Plaatsen van de circles op de Y-as van de svg
-                text
-                    .attr("dx", (d => d.x)) // Plaatsen van de circles op de X-as van de svg
-                    .attr("dy", (d => d.y)) // Plaatsen van de circles op de Y-as van de svg
+                text // Plaatsen van text
+                    .attr("dx", (d => d.x)) // Plaatsen van de text op de X-as van de svg
+                    .attr("dy", (d => d.y)) // Plaatsen van de text op de Y-as van de svg
             })
     })
