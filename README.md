@@ -11,7 +11,7 @@ Functional Programming is het opbouwen van code door 'pure functies'* samen te s
 De gebruiker kan aan de hand van de visualisatie inzicht krijgen in het soort materiaal van de voorwerpen in een bepaalde categorie. Deze krijgt hij te zien van de verschillende landen binnen deze categorie. Elk land staat voor een kleur. De grootte van de ballen betekent hoe meer materialen er zijn in die categorie. De gebruiker kan ook zelf bollen verslepen om deze naast elkaar te houden en te vergelijken.
 
 ![Concept-functional-programming](https://user-images.githubusercontent.com/45365598/68803690-866ae180-0660-11ea-808c-730090275156.png)
-Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372
+Bron: https://bl.ocks.org/HarryStevens/f636199a46fc4b210fbca3b1dc4ef372  
 Bron: https://www.d3-graph-gallery.com/graph/circularpacking_template.html
 
 ## Inhoudsopgave
