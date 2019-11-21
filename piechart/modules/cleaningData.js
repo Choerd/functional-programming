@@ -34,5 +34,6 @@ export function fiveMostOccuringMaterials(allMaterials) {
             aantal: allMaterials[key]
         })
     })
+    console.log(top5Materials.sort((lowest, highest) => highest.aantal - lowest.aantal).splice(0, 5))
     return top5Materials.sort((lowest, highest) => highest.aantal - lowest.aantal).splice(0, 5)
 }
